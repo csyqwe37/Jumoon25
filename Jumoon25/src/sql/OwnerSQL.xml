@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="owner">
+
+	<typeAlias alias="owner_dto" type="jumoon25.owner.login.OwnerDataBean" />
+	<typeAlias alias="admin_dto" type="jumoon25.admin.bean.AdminDataBean" />
+	
+	<select id="ownerLoginCheck" resultClass="int" parameterClass="owner_dto">
+		select count(*) from owner where owner_id=#owner_id# and owner_pw=#owner_pw#
+	</select>
+	
+	<select id="adminLoginCheck" resultClass="int" parameterClass="admin_dto">
+		select count(*) from administrator where admin_id=#admin_id# and admin_pw=#admin_pw#
+	</select>
+	
+	<select id="ownerIdCheck" resultClass="int" parameterClass="String">
+		select count(*) from owner where owner_id=#owner_id#
+	</select>
+	
+	<insert id="ownerInput" parameterClass="owner_dto">
+		insert into owner values(
+		#owner_id#,#owner_pw#,#owner_name#, #owner_sex#,#owner_birth#,#owner_phone#,#owner_address#,default
+		)
+	</insert>
+
+</sqlMap>
