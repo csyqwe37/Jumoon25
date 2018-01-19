@@ -9,13 +9,13 @@
 <fmt:requestEncoding value="utf-8" />
 <body>
 	<c:if test="${check==1}">
-		<table width="270" border="0" cellspacing="0" cellpadding="5">
+		<table width="470" border="0" cellspacing="0" cellpadding="5">
 			<tr>
-				<td height="39">${id}는 이미 사용중인 아이디입니다.</td>
+				<td height="39" align="center">${id}는 이미 사용중인 아이디입니다.</td>
 			</tr>
 		</table>
 		<form name="checkForm" method="post" action="/Jumoon25/owner_login/owner_confirmId.do">
-			<table width="270" border="0" cellspacing="0" cellpadding="5">
+			<table width="470" border="0" cellspacing="0" cellpadding="5">
 				<tr>
 					<td align="center">다른 아이디를 선택하세요.
 						<p>
@@ -27,7 +27,7 @@
 		</form>
 	</c:if>
 	<c:if test="${check!=1}">
-		<table width="270" border="0" cellspacing="0" cellpadding="5">
+		<table width="470" border="0" cellspacing="0" cellpadding="5">
 			<tr>
 				<td align="center">
 					<p>

@@ -2,6 +2,22 @@
 <html>
 <head>
 <title>사장님 회원가입</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+
+<link href="/Jumoon25/design/bootswatch/bootstrap.css" rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_bootswatch.scss"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_variables.scss"
+	rel="stylesheet">
 <script language="JavaScript">
 	function checkIt() {
 		var ownerinput = eval("document.ownerinput");
@@ -62,7 +78,7 @@
 		open(
 				url,
 				"confirm",
-				"toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300, height=200");
+				"toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500, height=300");
 	}
 </script>
 <!-- 주소api -->
@@ -113,76 +129,23 @@
 				}).open();
 	}
 </script>
-
 <body>
-
-	<form method="post" action="/Jumoon25/owner_login/owner_inputPro.do"
-		name="ownerinput" onSubmit="return checkIt()">
-		<table width="600" border="1" cellspacing="0" cellpadding="3"
-			align="center">
-			<tr>
-				<td colspan="2" height="39" align="center"><font size="+1"><b>사장님
-							회원가입</b></font></td>
-			</tr>
-			<tr>
-				<td width="200"><b>아이디 입력</b></td>
-				<td width="400">&nbsp;</td>
-			</tr>
-
-			<tr>
-				<td width="200">사용자 ID</td>
-				<td width="400"><input type="text" name="owner_id" size="10"
-					maxlength="12"> <input type="button" name="confirm"
-					value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
-			</tr>
-			<tr>
-				<td width="200">비밀번호</td>
-				<td width="400"><input type="password" name="owner_pw"
-					size="15" maxlength="12"></td>
-			<tr>
-				<td width="200">비밀번호 확인</td>
-				<td width="400"><input type="password" name="owner_pw2"
-					size="15" maxlength="12"></td>
-			</tr>
-
-			<tr>
-				<td width="200"><b>개인정보 입력</b></td>
-				<td width="400">&nbsp;</td>
-			<tr>
-			<tr>
-				<td width="200">사용자 이름</td>
-				<td width="400"><input type="text" name="owner_name" size="15"
-					maxlength="10"></td>
-			</tr>
-			<tr>
-				<td width="200">성별</td>
-				<td width="400"><input type="radio" name="owner_sex" value="m">남
-					<input type="radio" name="owner_sex" value="f">여</td>
-			</tr>
-			<tr>
-				<td width="200">생년월일</td>
-				<td width="400"><input type="text" name="owner_birth" size="40"
-					maxlength="30" placeholder="생년월일 순으로  -없이 입력하세요(8자리)"></td>
-			</tr>
-			<tr>
-				<td width="200">전화번호</td>
-				<td width="400"><input type="text" name="owner_phone" size="60"
-					maxlength="50" placeholder="11자리를 -없이 입력하세요"></td>
-			</tr>
-			<tr>
-				<td width="200">주소</td>
-				<td width="400"><input type="text" name="owner_address"
-					size="60" maxlength="50"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit"
-					name="confirm" value="등   록"> <input type="reset"
-					name="reset" value="다시입력"> <input type="button"
-					value="가입안함"
-					onclick="javascript:window.location='owner_loginForm.do'">
-				</td>
-			</tr>
-		</table>
-	</form>
+	<div class="container w-75 py-3">
+		<a href="#"></a>
+		<h3>사장님 회원가입</h3>
+		<form method="post" action="/Jumoon25/owner_login/owner_inputPro.do"
+			name="ownerinput" onSubmit="return checkIt()">
+			<div class="form-group row">
+				<div class="form-row">
+					<label for="owner_id" class="">아이디</label> <input type="text"
+						name="owner_id" placeholder="아이디를 입력하세요."
+						class="col-form-label-sm" /> <input type="button"
+						name="confirm" value="ID중복확인"
+						class="btn btn-secondary btn-sm"
+						OnClick="openConfirmid(this.form)">
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
