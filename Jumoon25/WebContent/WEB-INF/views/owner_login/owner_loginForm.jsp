@@ -1,8 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>·Î±×ÀÎ</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ë¡œê·¸ì¸</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+	
+<link href="/Jumoon25/design/bootswatch/bootstrap.css" rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_bootswatch.scss"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_variables.scss"
+	rel="stylesheet">
 
 <script language="javascript">
 	function begin() {
@@ -10,12 +31,12 @@
 	}
 	function checkIt() {
 		if (!document.myform.owner_id.value) {
-			alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏÁö ¾ÊÀ¸¼Ì½À´Ï´Ù.");
+			alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì§€ ì•Šìœ¼ì…¨ìŠµë‹ˆë‹¤.");
 			document.myform.owner_id.focus();
 			return false;
 		}
 		if (!document.myform.owner_pw.value) {
-			alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏÁö ¾ÊÀ¸¼Ì½À´Ï´Ù.");
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì§€ ì•Šìœ¼ì…¨ìŠµë‹ˆë‹¤.");
 			document.myform.owner_pw.focus();
 			return false;
 		}
@@ -24,33 +45,37 @@
 </head>
 <BODY onload="begin()">
 
-	<div id="wrap">
+	<div align="center" id="wrap">
+
 		<div id="header">
-			<h1 class="logo">
-				<a href="#">Jumoon25</a>
-			</h1>
+			<h3 class="logo">
+				<a href="/Jumoon25/main/main.do">Jumoon25</a>
+			</h3>
 		</div>
+
 		<div id="container">
-			<div id="content">
-				<h2 class="blind">»çÀå´Ô ·Î±×ÀÎ</h2>
-				<div class="join">
-					<form name="myform"	action="/Jumoon25/owner_login/owner_loginPro.do" method="post" onSubmit="return checkIt()">
-						<p class="field">
-							<label for="owner_id" class="col-form-label">¾ÆÀÌµğ</label>
-							<input type="text" id="owner_id" placeholder="¾ÆÀÌµğ" class="form-control" />
-						</p>
-						<p class="field">
-							<label for="owner_pw" class="col-form-label">ºñ¹Ğ¹øÈ£</label>
-							<input type="password" id="owner_pw" placeholder="ºñ¹Ğ¹øÈ£" class="form-control" />
-						</p>
-						<div class="btn-area">
-							<input type="submit" class="btn btn-primary" value="·Î±×ÀÎ" />
-							<input type="button" value="È¸¿ø°¡ÀÔ" class="btn btn-primary" onclick="javascript:window.location='owner_inputForm.do'" />
-						</div>
-					</form>
-				</div>
+			<h5 class="text-primary">ì‚¬ì¥ë‹˜ ë¡œê·¸ì¸</h5>
+			<div class="join">
+				<form name="myform" action="/Jumoon25/owner_login/owner_loginPro.do"
+					method="post" onSubmit="return checkIt()">
+					<div class="form-group">
+						<label for="owner_id">ì•„ì´ë””</label> <input type="text" id="owner_id"
+							placeholder="ì•„ì´ë””" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="owner_pw">ë¹„ë°€ë²ˆí˜¸</label> <input type="password"
+							id="owner_pw" placeholder="ë¹„ë°€ë²ˆí˜¸" class="form-control" />
+					</div>
+					<div class="btn-area">
+						<input type="submit" class="btn btn-primary" value="ë¡œê·¸ì¸" /> <input
+							type="button" value="íšŒì›ê°€ì…" class="btn btn-primary"
+							onclick="javascript:window.location='owner_inputForm.do'" />
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
+
+
 </BODY>
 </HTML>

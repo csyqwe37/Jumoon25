@@ -16,7 +16,7 @@
 	<context:component-scan base-package="jumoon25.main.main"/>
 	
 	<!-- yang -->
-	<context:component-scan base-package="jumoon25.admin.NoticeBean"/>
+	<context:component-scan base-package="jumoon25.admin.notice"/>
 	
 	<!-- park -->
 

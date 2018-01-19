@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <h2>owner main</h2><br>
-<input type="button" name="shop_management" value="¾÷Ã¼°ü¸®" onclick="javascript:window.location='/Jumoon25/owner_management/owner_shop_management.do'"/>
-<input type="button" name="sales_graph" value="¸ÅÃâ°ü¸®" onclick="javascript:window.location='/Jumoon25/owner_management/owner_sales_graph.do'"/>
-<input type="button" name="notices" value="°øÁö»çÇ×" onclick="javascript:window.location='/Jumoon25/owner_management/owner_notices.do'"/>
-<input type="button" name="logout" value="·Î±×¾Æ¿ô" onclick="javascript:window.location='/Jumoon25/owner_login/owner_logout.do'"/>
+<input type="button" name="shop_management" value="ì—…ì²´ê´€ë¦¬" onclick="javascript:window.location='/Jumoon25/owner_management/owner_shop_management.do'"/>
+<input type="button" name="sales_graph" value="ë§¤ì¶œê´€ë¦¬" onclick="javascript:window.location='/Jumoon25/owner_management/owner_sales_graph.do'"/>
+<input type="button" name="notices" value="ê³µì§€ì‚¬í•­" onclick="javascript:window.location='/Jumoon25/owner_management/owner_notices.do'"/>
+<input type="button" name="logout" value="ë¡œê·¸ì•„ì›ƒ" onclick="javascript:window.location='/Jumoon25/owner_login/owner_logout.do'"/>
