@@ -29,5 +29,10 @@ public class OwnerShopManager {
 	public String owner_addShopPro() {
 		return "/owner_management/owner_addShopPro";
 	}
+	
+	@RequestMapping("/module/mainTest.do")
+	public String qwer() {
+		return "/module/mainTest";
+	}
 
 }

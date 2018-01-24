@@ -32,7 +32,7 @@
 				<td align="center">
 					<p>
 						입력하신 ${id}는 사용하실 수 있는 ID입니다.
-					</p> <input type="button" value="닫기" onclick="setid()">
+					</p> <input type="button" value="확인" onclick="setid()">
 				</td>
 			</tr>
 		</table>
@@ -44,6 +44,7 @@
   function setid()
     {		
     	opener.document.ownerinput.owner_id.value="${id}";
+    	opener.document.ownerinput.confirmCheck.value="1";
 		self.close();
 	}
 </script>

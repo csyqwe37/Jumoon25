@@ -1,6 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../module/top.jsp"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>사장님 회원가입</title>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
@@ -29,12 +36,16 @@
 			alert("비밀번호를 입력하세요");
 			return false;
 		}
+		if (ownerinput.owner_pw.value.length < 4) {
+			alert("비밀번호는 4자리 이상입니다");
+			return false;
+		}
 		if (ownerinput.owner_pw.value != ownerinput.owner_pw2.value) {
 			alert("비밀번호를 동일하게 입력하세요");
 			return false;
 		}
 		if (!ownerinput.owner_name.value) {
-			alert("사용자 이름을 입력하세요");
+			alert("성함을 입력하세요");
 			return false;
 		}
 		if (!ownerinput.owner_sex[0].checked
@@ -58,7 +69,19 @@
 			alert("전화번호는 -없이 11자리 입니다.");
 			return false;
 		}
+		if (!ownerinput.confirmCheck.value) {
+			alert("ID중복체크를 하세요");
+			return false;
+		}
 		if (!ownerinput.owner_address.value) {
+			alert("주소를 입력하세요");
+			return false;
+		}
+		if (!ownerinput.owner_address1.value) {
+			alert("주소를 입력하세요");
+			return false;
+		}
+		if (!ownerinput.owner_address2.value) {
 			alert("주소를 입력하세요");
 			return false;
 		}
@@ -132,18 +155,69 @@
 <body>
 	<div class="container w-75 py-3">
 		<a href="#"></a>
-		<h3>사장님 회원가입</h3>
+		<h5>사장님 회원가입</h5>
 		<form method="post" action="/Jumoon25/owner_login/owner_inputPro.do"
 			name="ownerinput" onSubmit="return checkIt()">
-			<div class="form-group row">
-				<div class="form-row">
-					<label for="owner_id" class="">아이디</label> <input type="text"
-						name="owner_id" placeholder="아이디를 입력하세요."
-						class="col-form-label-sm" /> <input type="button"
-						name="confirm" value="ID중복확인"
-						class="btn btn-secondary btn-sm"
-						OnClick="openConfirmid(this.form)">
+			<input type="hidden" name="confirmCheck">
+			<div class="form-inline mb-1">
+				<input type="text" name="owner_id" placeholder="아이디"
+					class="form-control form-control-sm" /><input type="button"
+					name="confirm" value="중복확인"
+					class="btn btn-secondary btn-sm ml-auto mr-0"
+					OnClick="openConfirmid(this.form)">
+			</div>
+			<div class="form-group mb-1">
+				<input class="form-control form-control-sm" name="owner_pw"
+					type="password" placeholder="비밀번호">
+			</div>
+			<div class="form-group">
+				<input class="form-control form-control-sm" name="owner_pw2"
+					type="password" placeholder="비밀번호 재입력">
+			</div>
+			<div class="form-inline mb-1">
+				<div class="form-group">
+					<input class="form-control form-control-sm" name="owner_name"
+						type="text" placeholder="성함">
+					<div class="custom-control custom-radio ml-4">
+						<input name="owner_sex" class="custom-control-input"
+							id="customRadio1" type="radio" value="m"> <label
+							class="custom-control-label" for="customRadio1">남</label>
+					</div>
+					<div class="custom-control custom-radio ml-2">
+						<input name="owner_sex" class="custom-control-input"
+							id="customRadio2" type="radio" value="f"> <label
+							class="custom-control-label" for="customRadio2">여</label>
+					</div>
 				</div>
+			</div>
+			<div class="form-group mb-1">
+				<input class="form-control form-control-sm" name="owner_birth"
+					type="text" placeholder="생년월일(-없이 8자리)" maxlength="8">
+			</div>
+			<div class="form-group mb-1">
+				<input class="form-control form-control-sm" name="owner_phone"
+					type="text" placeholder="전화번호(-없이 11자리)" maxlength="11">
+			</div>
+			<div class="form-inline mb-1">
+				<input type="text" class="form-control form-control-sm" name="owner_address"
+					id="sample6_postcode" placeholder="우편번호" size="10" readonly="">
+				<input type="button" class="btn btn-secondary btn-sm ml-auto mr-0"
+					onclick="sample6_execDaumPostcode()" value="주소 찾기">
+			</div>
+			<div class="form-group mb-1">
+				<input type="text" class="form-control form-control-sm" readonly=""
+					id="sample6_address" name="owner_address1" placeholder="주소">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control form-control-sm"
+					id="sample6_address2" name="owner_address2" placeholder="상세 주소">
+			</div>
+			<div class="form-inline">
+				<input type="submit" class="btn btn-primary btn-sm ml-auto mr-1"
+					value="회원가입"> <input type="button"
+					class="btn btn-primary btn-sm ml-1 mr-auto"
+					onclick="javascript:window.location='owner_loginForm.do'"
+					value="돌아가기">
 			</div>
 		</form>
 	</div>

@@ -71,16 +71,4 @@ public class OwnerBean {
 		return "/owner_login/owner_logout";
 	}
 	
-	@RequestMapping("/module/mainTest.do")
-	public String mainTest(HttpSession session) {
-		return "/module/mainTest";
-	}
-	@RequestMapping("/module/top.do")
-	public String top(HttpSession session) {
-		return "/module/top";
-	}
-	@RequestMapping("/module/menu.do")
-	public String menu(HttpSession session) {
-		return "/module/menu";
-	}
 }
