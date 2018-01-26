@@ -39,6 +39,18 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="-1"/><!-- 제한이 없을 때 -1 -->
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	
+	<bean id="download" class="jumoon25.admin.notice.DownloadView"/>
+	<!-- AbstractView 클래스로 생성된 VIEW 설정 -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0"/>
+	</bean>
+	
+	
 	<!-- aop -->
 	<aop:aspectj-autoproxy/>
 	<!-- shin -->

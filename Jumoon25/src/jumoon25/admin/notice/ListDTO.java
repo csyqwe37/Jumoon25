@@ -5,13 +5,13 @@ import java.util.List;
 
 public class ListDTO {
 	//list부분
-		List<NoticeDTO> list = new ArrayList<NoticeDTO>();
-		int currentPage = 1; 	//현재 페이지
-		int totalCount;		 	//총 게시물의 수
-		int blockCount = 10;	//한 페이지의 게시물 수
-		int blockPage = 5;		//한 화면에 보여줄 페이지 수
-		String pagingHtml;		//페이징을 구현한 HTML
-		pagingAction page;		//페이징 클래스
+		private List<NoticeDTO> list = new ArrayList<NoticeDTO>();
+		private int currentPage = 1; 	//현재 페이지
+		private int totalCount;		 	//총 게시물의 수
+		private int blockCount = 10;	//한 페이지의 게시물 수
+		private int blockPage = 5;		//한 화면에 보여줄 페이지 수
+		private String pagingHtml;		//페이징을 구현한 HTML
+		private pagingAction page;		//페이징 클래스
 
 		public List<NoticeDTO> getList() {
 			return list;

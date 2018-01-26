@@ -1,72 +1,63 @@
 package jumoon25.admin.notice;
 
+import java.io.File;
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class NoticeDTO {
-	private int no;
-	private String subject;
-	private String name;
-	private String password;
-	private String content;
-	private String file_orgname;
-	private String file_savname;
-	private int readhit;
-	private Date regdate;
+	private int notice_number;
+	private String notice_title;
+	private String notice_content;
+	private String notice_fileorg;
+	private String notice_filesav;
+	private int notice_readcount;
+	private Date notice_time;
 	
-	public int getNo() {
-		return no;
+	public int getNotice_number() {
+		return notice_number;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setNotice_number(int notice_number) {
+		this.notice_number = notice_number;
 	}
-	public String getSubject() {
-		return subject;
+	public String getNotice_title() {
+		return notice_title;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setNotice_title(String notice_title) {
+		this.notice_title = notice_title;
 	}
-	public String getName() {
-		return name;
+	public String getNotice_content() {
+		return notice_content;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNotice_content(String notice_content) {
+		this.notice_content = notice_content;
 	}
-	public String getPassword() {
-		return password;
+	public String getNotice_fileorg() {
+		return notice_fileorg;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setNotice_fileorg(String notice_fileorg) {
+		this.notice_fileorg = notice_fileorg;
 	}
-	public String getContent() {
-		return content;
+	public String getNotice_filesav() {
+		return notice_filesav;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setNotice_filesav(String notice_filesav) {
+		this.notice_filesav = notice_filesav;
 	}
-	public String getFile_orgname() {
-		return file_orgname;
+	public int getNotice_readcount() {
+		return notice_readcount;
 	}
-	public void setFile_orgname(String file_orgname) {
-		this.file_orgname = file_orgname;
+	public void setNotice_readcount(int notice_readcount) {
+		this.notice_readcount = notice_readcount;
 	}
-	public String getFile_savname() {
-		return file_savname;
+	public Date getNotice_time() {
+		return notice_time;
 	}
-	public void setFile_savname(String file_savname) {
-		this.file_savname = file_savname;
+	public void setNotice_time(Date notice_time) {
+		this.notice_time = notice_time;
 	}
-	public int getReadhit() {
-		return readhit;
-	}
-	public void setReadhit(int readhit) {
-		this.readhit = readhit;
-	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
+
+	
 	
 	
 }
