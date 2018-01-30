@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="shop">
+	<typeAlias alias="shop_dto" type="jumoon25.owner.management.ShopDataBean" />
+
+	<select id="shopTableCheck" parameterClass="String" resultClass="int">
+		select count(*) from tab where TNAME=#table_name#
+	</select>
+
+	<insert id="shopCreate" parameterClass="String">
+		create table
+		$id$_shop(shop_name varchar2(50),shop_phone varchar2(11),shop_intro varchar2(120),shop_bHours varchar2(30),shop_cooInfo varchar2(120),
+		shop_deliveryArea varchar2(50),shop_deliveryCost varchar2(30),shop_address varchar2(10),shop_address1 varchar2(100),
+		shop_address2 varchar2(100),shop_category varchar2(20),shop_image varchar2(40),shop_comment varchar2(120),
+		shop_crNum varchar2(20) primary	key,shop_bank varchar2(6),shop_account varchar2(20),shop_owner_id varchar2(20),
+		shop_review_count number default 0,shop_bookmark number default 0,shop_order_count number default 0,shop_star number default 0)
+	</insert>
+
+	<insert id="shopInsert" parameterClass="shop_dto">
+		insert into
+		$shop_owner_id$_shop
+		values(#shop_name#,#shop_phone#,#shop_intro#,#shop_bHours#,#shop_cooInfo#,#shop_deliveryArea#,#shop_deliveryCost#,
+		#shop_address#,#shop_address1#,#shop_address2#,#shop_category#,#shop_image#,#shop_comment#,#shop_crNum#,#shop_bank#,#shop_account#,
+		#shop_owner_id#,default,default,default,default)
+	</insert>
+	
+	<select id="getAll" parameterClass="String" resultClass="shop_dto">
+		select * from $table_name$
+	</select>
+	
+	<delete id="shopDelete" parameterClass="shop_dto">
+		delete from $shop_owner_id$_shop where shop_crNum=#shop_crNum#
+	</delete>
+
+</sqlMap>

@@ -1,38 +1,38 @@
-<%@ page contentType="text/html;charset=euc-kr"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <html>
 <head>
-<title>ID Áßº¹È®ÀÎ</title>
+<title>ID ì¤‘ë³µí™•ì¸</title>
 
 <fmt:requestEncoding value="utf-8" />
 <body>
 	<c:if test="${check==1}">
-		<table width="270" border="0" cellspacing="0" cellpadding="5">
+		<table width="470" border="0" cellspacing="0" cellpadding="5">
 			<tr>
-				<td height="39">${id}´Â ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù.</td>
+				<td height="39" align="center">${id}ëŠ” ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ì•„ì´ë””ì…ë‹ˆë‹¤.</td>
 			</tr>
 		</table>
 		<form name="checkForm" method="post" action="/Jumoon25/owner_login/owner_confirmId.do">
-			<table width="270" border="0" cellspacing="0" cellpadding="5">
+			<table width="470" border="0" cellspacing="0" cellpadding="5">
 				<tr>
-					<td align="center">´Ù¸¥ ¾ÆÀÌµğ¸¦ ¼±ÅÃÇÏ¼¼¿ä.
+					<td align="center">ë‹¤ë¥¸ ì•„ì´ë””ë¥¼ ì„ íƒí•˜ì„¸ìš”.
 						<p>
 							<input type="text" size="10" maxlength="12" name="id"> <input
-								type="submit" value="IDÁßº¹È®ÀÎ">
+								type="submit" value="IDì¤‘ë³µí™•ì¸">
 					</td>
 				</tr>
 			</table>
 		</form>
 	</c:if>
 	<c:if test="${check!=1}">
-		<table width="270" border="0" cellspacing="0" cellpadding="5">
+		<table width="470" border="0" cellspacing="0" cellpadding="5">
 			<tr>
 				<td align="center">
 					<p>
-						ÀÔ·ÂÇÏ½Å ${id}´Â »ç¿ëÇÏ½Ç ¼ö ÀÖ´Â IDÀÔ´Ï´Ù.
-					</p> <input type="button" value="´İ±â" onclick="setid()">
+						ì…ë ¥í•˜ì‹  ${id}ëŠ” ì‚¬ìš©í•˜ì‹¤ ìˆ˜ ìˆëŠ” IDì…ë‹ˆë‹¤.
+					</p> <input type="button" value="í™•ì¸" onclick="setid()">
 				</td>
 			</tr>
 		</table>
@@ -44,6 +44,7 @@
   function setid()
     {		
     	opener.document.ownerinput.owner_id.value="${id}";
+    	opener.document.ownerinput.confirmCheck.value="1";
 		self.close();
 	}
 </script>

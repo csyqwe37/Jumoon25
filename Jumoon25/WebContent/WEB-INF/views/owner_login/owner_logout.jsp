@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <script>
-	alert("·Î±×¾Æ¿ô µÇ¾ú½À´Ï´Ù.");
+	alert("ë¡œê·¸ì•„ì›ƒ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	window.location="/Jumoon25/owner_login/owner_loginForm.do";
 </script>

@@ -70,4 +70,5 @@ public class OwnerBean {
 		session.invalidate();
 		return "/owner_login/owner_logout";
 	}
+	
 }
