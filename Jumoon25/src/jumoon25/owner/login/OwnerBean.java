@@ -24,16 +24,17 @@ public class OwnerBean {
 	}
 
 	@RequestMapping("/owner_login/owner_loginPro.do")
-	public String owner_loginPro(OwnerDataBean owner_dto, HttpSession session) {
+	public String owner_loginPro(OwnerDataBean owner_dto, AdminDataBean admin_input, HttpSession session) {
 		String view = "/owner_login/owner_loginPro";
-		if (owner_dto.getOwner_id().equals("admin")) {
+		System.out.println(session.getAttribute("input_id"));
+		if (admin_input.getAdmin_id().equals("admin")) {
 			admin_dto = new AdminDataBean();
 			admin_dto.setAdmin_id(owner_dto.getOwner_id());
 			admin_dto.setAdmin_pw(owner_dto.getOwner_pw());
 			int check = (Integer) sqlMap.queryForObject("owner.adminLoginCheck", admin_dto);
 			if (check == 1) {
 				session.setAttribute("ownerId", admin_dto.getAdmin_id());
-				view = "redirect:/admin_page/main.do";
+				view = "redirect:/admin_gate/main.do";
 			}
 		} else {
 			int check = (Integer) sqlMap.queryForObject("owner.ownerLoginCheck", owner_dto);

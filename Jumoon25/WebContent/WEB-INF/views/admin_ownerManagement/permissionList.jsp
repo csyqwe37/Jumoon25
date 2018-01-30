@@ -41,15 +41,8 @@
 	      <td>${dto.owner_birth}</td>
 	      <td>${dto.owner_phone}</td>
 	      <td>${dto.owner_address1}</td>
-	      <td>
-	      	<a href="permissionView.do?owner_id=${dto.owner_id}&currentPage=${currentPage}">
-	      		<c:if test="${dto.owner_permission == 0}">
-	      			<c:out value="Disable"/>
-	      		</c:if>
-	      		<c:if test="${dto.owner_permission == 1}">
-	      			<c:out value="Able"/>
-	      		</c:if>
-	      	</a>
+	      <td>  	
+	   		<input name="enable" type="button" value="승인허가" class="btn btn-primary" onClick="javascript:location.href='permissionProEnable.do?owner_id=${dto.owner_id}&currentPage=${currentPage}'">
 	      </td>
 	    </tr>
 	</c:forEach>

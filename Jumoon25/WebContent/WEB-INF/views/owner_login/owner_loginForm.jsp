@@ -37,11 +37,11 @@
 					<form name="myform"	action="/Jumoon25/owner_login/owner_loginPro.do" method="post" onSubmit="return checkIt()">
 						<p class="field">
 							<label for="owner_id" class="col-form-label">아이디</label>
-							<input type="text" id="owner_id" placeholder="아이디" class="form-control" />
+							<input type="text" id="owner_id" name="owner_id" value="${owner_dto.owner_id} placeholder="아이디" class="form-control" />
 						</p>
 						<p class="field">
 							<label for="owner_pw" class="col-form-label">비밀번호</label>
-							<input type="password" id="owner_pw" placeholder="비밀번호" class="form-control" />
+							<input type="password" id="owner_pw" name="owner_pw" value="${owner_dto.owner_pw} placeholder="비밀번호" class="form-control" />
 						</p>
 						<div class="btn-area">
 							<input type="submit" class="btn btn-primary" value="로그인" />
