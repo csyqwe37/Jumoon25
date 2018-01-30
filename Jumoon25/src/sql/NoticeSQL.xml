@@ -3,17 +3,6 @@
 <sqlMap namespace="notice">
 
 	<typeAlias alias="notice" type="jumoon25.admin.notice.NoticeDTO" />
-
-		<!-- 리절트 맵 정의 -->
-	  	<resultMap id="noticeRes" class="notice">
-		  	<result property="notice_number" column="notice_number"/>
-		  	<result property="notice_title" column="notice_title"/>
-		  	<result property="notice_content" column="notice_content"/>
-		  	<result property="notice_fileorg" column="notice_fileorg"/>
-		  	<result property="notice_filesav" column="notice_filesav"/>
-		  	<result property="notice_readcount" column="notice_readcount"/>
-		  	<result property="notice_time" column="notice_time"/>
-		</resultMap>
 		
 		<!-- 공통으로 사용할 select 절 정의 -->
 		<sql id="select-all">
@@ -27,13 +16,13 @@
 	
 	
 		<!-- select 쿼리문 정의 -->
-		<select id="selectAll" resultMap="noticeRes" parameterClass="int">
+		<select id="selectAll" resultClass="notice" parameterClass="int">
 			<include refid="select-all" />
 			<!-- SELECT * FROM NOTICE  -->
 			ORDER BY notice_number DESC
 		</select>
 		
-		<select id="selectOne" resultMap="noticeRes" parameterClass="int">
+		<select id="selectOne" resultClass="notice" parameterClass="int">
 			<include refid="select-all" />
 			<include refid="where-number" />
 		</select>

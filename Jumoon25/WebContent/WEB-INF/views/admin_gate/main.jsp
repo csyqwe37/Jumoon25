@@ -7,6 +7,6 @@
 	<body>
 		<h2>관리자 페이지</h2>
 		<input type="button" value="게시판" onclick="javascript:window.location='/Jumoon25/admin_notice/noticeList.do?currentPage=1'">
-		<input type="button" value="사장님 관리" onclick="javascript:window.location='/Jumoon25/admin_ownerManagement/ownerList.do?currentPage=1'">		
+		<input type="button" value="사장님 승인/비승인" onclick="javascript:window.location='/Jumoon25/admin_ownerManagement/permissionList.do?currentPage=1'">		
 	</body>
 </html>
