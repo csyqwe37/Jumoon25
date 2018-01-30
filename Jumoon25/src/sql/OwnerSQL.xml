@@ -4,38 +4,38 @@
 
 	<typeAlias alias="owner_dto" type="jumoon25.owner.login.OwnerDataBean" />
 	<typeAlias alias="admin_dto" type="jumoon25.admin.bean.AdminDataBean" />
-<<<<<<< HEAD
 
-=======
-	
+	<!-- yang -->
+
 	<!-- 공통으로 사용할 select 절 정의 -->
 	<sql id="select-all">
 		select * from owner
 	</sql>
-	
+
 	<!-- owner들 list를 불러올 수 있도록 정의 -->
 	<select id="selectAll" resultClass="owner_dto">
 		<include refid="select-all" />
-		<!-- SELECT * FROM OWNER  -->
+		<!-- SELECT * FROM OWNER -->
 		ORDER BY owner_id DESC
 	</select>
-	
+
 	<select id="selectOne" resultClass="owner_dto" parameterClass="String">
-			<include refid="select-all" />
-			where owner_id = #owner_id#
+		<include refid="select-all" />
+		where owner_id = #owner_id#
 	</select>
-		
+
 	<!-- 승인이 안된 예비 owner들의 list를 불러올 수 있도록 정의 -->
 	<select id="notPermission" resultClass="owner_dto">
-		<include refid="select-all"/>
+		<include refid="select-all" />
 		where owner_permission = 0
 	</select>
-	
->>>>>>> branch 'master' of https://github.com/csyqwe37/Jumoon25.git
+
 	<select id="ownerLoginCheck" resultClass="int" parameterClass="owner_dto">
 		select count(*) from owner where owner_id=#owner_id# and
 		owner_pw=#owner_pw#
 	</select>
+	
+	<!-- shin -->
 
 	<select id="adminLoginCheck" resultClass="int" parameterClass="admin_dto">
 		select count(*) from administrator where admin_id=#admin_id# and
@@ -46,16 +46,15 @@
 		select count(*) from owner where owner_id=#owner_id#
 	</select>
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'master' of https://github.com/csyqwe37/Jumoon25.git
 	<insert id="ownerInput" parameterClass="owner_dto">
 		insert into owner values(
 		#owner_id#,#owner_pw#,#owner_name#,
 		#owner_sex#,#owner_birth#,#owner_phone#,#owner_address#,#owner_address1#,#owner_address2#,default
 		)
 	</insert>
-	<select id="ownerCheckPermission" parameterClass="String" resultClass="int"> 
-		select owner_permission from owner where owner_id=#owner_id# </select>
+
+	<select id="ownerCheckPermission" parameterClass="String"
+		resultClass="int">
+		select owner_permission from owner where owner_id=#owner_id#
+	</select>
 </sqlMap>
