@@ -7,6 +7,7 @@
 	
 	<!-- shin -->
 	<sqlMap resource="/sql/OwnerSQL.xml"/>
+	<sqlMap resource="/sql/ShopSQL.xml"/>
 	
 	<!-- kim -->
 	

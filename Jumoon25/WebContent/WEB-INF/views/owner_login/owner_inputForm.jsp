@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../module/top.jsp"%>
+<%@ include file="../module/bottom.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,8 +154,7 @@
 	}
 </script>
 <body>
-	<div class="container w-75 py-3">
-		<a href="#"></a>
+	<div class="container w-50 py-3">
 		<h5>사장님 회원가입</h5>
 		<form method="post" action="/Jumoon25/owner_login/owner_inputPro.do"
 			name="ownerinput" onSubmit="return checkIt()">

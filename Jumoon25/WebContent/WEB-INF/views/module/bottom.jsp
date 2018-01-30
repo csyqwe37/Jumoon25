@@ -24,18 +24,28 @@
 <link href="/Jumoon25/design/bootswatch/_variables.scss"
 	rel="stylesheet">
 
+<style>
+.footer {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99999999999999;
+	background-color: silver;
+}
+</style>
 </head>
 
 <body>
-	<div>
-		<blockquote class="blockquote text-center mb-0">
-			<p class="mb-0">
-				<small>
-				<a class="card-link" href="/Jumoon25/main/main.do">홈 바로가기</a><a class="card-link" href="/Jumoon25/owner_login/owner_loginForm.do">사장님 사이트</a></br>
-					made by 시켜줘					
-				</small>
-			</p>
-		</blockquote>
+	<div class="text-center footer">
+		<p class="mb-0">
+			<small> <a class="card-link" href="/Jumoon25/main/main.do">홈
+					바로가기</a> <a class="card-link"
+				href="/Jumoon25/owner_login/owner_loginForm.do">사장님 사이트</a></br> made by
+				시켜줘
+			</small>
+		</p>
 	</div>
 </body>
 

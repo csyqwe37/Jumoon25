@@ -37,10 +37,15 @@
 
 	<div class="collapse navbar-collapse" id="navbarColor01">
 		<ul class="navbar-nav mr-auto ml-auto">
-			<li class="nav-item"><a class="nav-link" href="#">한식</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">양식</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">치킨</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">중식</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">일식</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">피자</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">족발/보쌈</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">야식</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">찜/탕</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">한식/분식</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">돈가스/일식/회</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">도시락/죽/패스트푸드</a></li>
 		</ul>
 	</div>
 	</nav>

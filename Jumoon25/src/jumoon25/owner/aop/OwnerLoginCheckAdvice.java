@@ -10,7 +10,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Aspect
 public class OwnerLoginCheckAdvice {
-	@Around("execution(public * jumoon.owner.management..*(..))")
+	@Around("execution(public * jumoon25.owner.management..*(..))")
 	public Object around(ProceedingJoinPoint jp) throws Throwable {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpServletRequest request = attr.getRequest();
@@ -23,7 +23,6 @@ public class OwnerLoginCheckAdvice {
 		} else {
 			view = "/owner_login/owner_check";
 		}
-
 		return view;
 	}
 }
