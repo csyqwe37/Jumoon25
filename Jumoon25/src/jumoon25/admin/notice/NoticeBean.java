@@ -109,7 +109,7 @@ public class NoticeBean {
 	@RequestMapping("noticeView.do")
 	public String view(NoticeDTO dto, Model model, int currentPage) {
 		
-		System.out.println("현재 열람하고 계신 데이터 번호는 " + dto.getNotice_number() + "입니다.");
+		System.out.println("현재 열람하고 있는 데이터 번호는 " + dto.getNotice_number() + "입니다.");
 		
 		//해당 글의 조회수 +1
 		NoticeDTO paramClass = new NoticeDTO();

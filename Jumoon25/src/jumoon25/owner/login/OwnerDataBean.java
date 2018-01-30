@@ -9,7 +9,10 @@ public class OwnerDataBean {
 	private String owner_phone;
 	private String owner_address;
 	private String owner_address1;
+<<<<<<< HEAD
 	private String owner_address2;
+=======
+>>>>>>> branch 'master' of https://github.com/csyqwe37/Jumoon25.git
 	private String owner_permission;
 	
 	public String getOwner_id() {
@@ -60,12 +63,15 @@ public class OwnerDataBean {
 	public void setOwner_address1(String owner_address1) {
 		this.owner_address1 = owner_address1;
 	}
+<<<<<<< HEAD
 	public String getOwner_address2() {
 		return owner_address2;
 	}
 	public void setOwner_address2(String owner_address2) {
 		this.owner_address2 = owner_address2;
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/csyqwe37/Jumoon25.git
 	public String getOwner_permission() {
 		return owner_permission;
 	}
