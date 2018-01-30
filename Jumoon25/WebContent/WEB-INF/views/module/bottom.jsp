@@ -7,75 +7,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- CSS includes -->
-<link href="/Jumoon25/design/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Karla"
-	rel="stylesheet" type="text/css">
 <link
-	href="/Jumoon25/design/theme/fonts/font-awesome/css/font-awesome.min.css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="/Jumoon25/design/theme/css/theme.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
 
+<link href="/Jumoon25/design/bootswatch/bootstrap.css" rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_bootswatch.scss"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_variables.scss"
+	rel="stylesheet">
+
+<style>
+.footer {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99999999999999;
+	background-color: silver;
+}
+</style>
 </head>
 
 <body>
-	<footer id="subfooter" class="clearfix">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<h4>ONLINE RESOURCES</h4>
-				<p>
-					<a href="#nid">Demos</a>
-				<p>
-					<a href="#nid">Documentation</a>
-				<p>
-					<a href="#nid">Support</a>
-				<p>
-					<a href="#nid">Blogs</a>
-			</div>
-			<div class="col-md-4">
-				<h4>CORPORATE</h4>
-				<p>
-					<span class="fa fa-globe"></span>&nbsp;&nbsp;&nbsp;54, North Road,
-					PA 45086, USA
-				</p>
-				<p>
-					<span class="fa fa-phone"></span>&nbsp;&nbsp;&nbsp;+1 888 455 6677
-				</p>
-				<p>
-					<span class="fa fa-envelope"></span>&nbsp;&nbsp;&nbsp;<a
-						href="mailto:mail@example.com">mail@example.com</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<h4>NEWSLETTER</h4>
-				<p>
-				<div class="input-group">
-					<input type="text" class="form-control"
-						placeholder="Enter your email..." /> <span
-						class="input-group-btn">
-						<button class="btn btn-primary" type="button">Subscribe</button>
-					</span>
-				</div>
-				</p>
-				<p>
-					<br />
-				</p>
-				<p>
-					<a class="fa fa-twitter footer-socialicon" target="_blank"
-						href="https://twitter.com/"></a> <a
-						class="fa fa-facebook footer-socialicon" target="_blank"
-						href="https://www.facebook.com/"></a> <a
-						class="fa fa-google-plus footer-socialicon" target="_blank"
-						href="https://plus.google.com/"></a> <a
-						class="fa fa-linkedin footer-socialicon" target="_blank"
-						href="https://plus.google.com/"></a>
-				</p>
-			</div>
-		</div>
+	<div class="text-center footer">
+		<p class="mb-0">
+			<small> <a class="card-link" href="/Jumoon25/main/main.do">홈
+					바로가기</a> <a class="card-link"
+				href="/Jumoon25/owner_login/owner_loginForm.do">사장님 사이트</a></br> made by
+				시켜줘
+			</small>
+		</p>
 	</div>
-	</footer>
-
 </body>
+
 </html>

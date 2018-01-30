@@ -1,64 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	http://www.springframework.org/schema/aop
-	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
-	>
-	
-	<!-- AbstractView 클래스로 생성된 VIEW 설정 -->
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/"/>
-		<property name="suffix" value=".jsp"/>
-		<property name="order" value="1"/>
+	<!-- AbstractView 클래스로 생성된 VIEW 설정 -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0" />
 	</bean>
 	
+	<bean id="download" class="jumoon25.admin.notice.DownloadView" />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1" />
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="-1" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
 	<!-- Oracle DB -->
 	<bean id="dataSource" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource"
-		p:driverClassName="oracle.jdbc.driver.OracleDriver"
-		p:url="jdbc:oracle:thin:@nullmaster.iptime.org:1521:orcl"
-		p:username="am07"
-		p:password="am07"
-		destroy-method="close"	
-	/>
-	
+		p:driverClassName="oracle.jdbc.driver.OracleDriver" p:url="jdbc:oracle:thin:@nullmaster.iptime.org:1521:orcl"
+		p:username="am07" p:password="am07" destroy-method="close" />
+
 	<!-- ibatis -->
 	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
 		<property name="configLocation" value="WEB-INF/sqlMapConfig.xml"></property>
 	</bean>
-	
+
 	<bean id="SqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
 		<property name="sqlMapClient" ref="sqlMapClient"></property>
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="-1"/><!-- 제한이 없을 때 -1 -->
-		<property name="defaultEncoding" value="UTF-8"/>
-	</bean>
-	
-	<bean id="download" class="jumoon25.admin.notice.DownloadView"/>
-	<!-- AbstractView 클래스로 생성된 VIEW 설정 -->
-	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-		<property name="order" value="0"/>
-	</bean>
-	
-	
+
 	<!-- aop -->
-	<aop:aspectj-autoproxy/>
+	<aop:aspectj-autoproxy />
 	<!-- shin -->
-	<bean id="advice" class="jumoon25.owner.aop.OwnerLoginCheckAdvice"/>
+	<bean class="jumoon25.owner.aop.OwnerLoginCheckAdvice" />
 	<!-- kim -->
-	
+
 	<!-- yang -->
-	
+
 	<!-- park -->
-	
+
 </beans>

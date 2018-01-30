@@ -1,7 +1,31 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../module/top.jsp"%>
+<%@ include file="../module/bottom.jsp"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>사장님 회원가입</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+
+<link href="/Jumoon25/design/bootswatch/bootstrap.css" rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_bootswatch.scss"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_variables.scss"
+	rel="stylesheet">
 <script language="JavaScript">
 	function checkIt() {
 		var ownerinput = eval("document.ownerinput");
@@ -13,12 +37,16 @@
 			alert("비밀번호를 입력하세요");
 			return false;
 		}
+		if (ownerinput.owner_pw.value.length < 4) {
+			alert("비밀번호는 4자리 이상입니다");
+			return false;
+		}
 		if (ownerinput.owner_pw.value != ownerinput.owner_pw2.value) {
 			alert("비밀번호를 동일하게 입력하세요");
 			return false;
 		}
 		if (!ownerinput.owner_name.value) {
-			alert("사용자 이름을 입력하세요");
+			alert("성함을 입력하세요");
 			return false;
 		}
 		if (!ownerinput.owner_sex[0].checked
@@ -42,7 +70,19 @@
 			alert("전화번호는 -없이 11자리 입니다.");
 			return false;
 		}
+		if (!ownerinput.confirmCheck.value) {
+			alert("ID중복체크를 하세요");
+			return false;
+		}
 		if (!ownerinput.owner_address.value) {
+			alert("주소를 입력하세요");
+			return false;
+		}
+		if (!ownerinput.owner_address1.value) {
+			alert("주소를 입력하세요");
+			return false;
+		}
+		if (!ownerinput.owner_address2.value) {
 			alert("주소를 입력하세요");
 			return false;
 		}
@@ -62,7 +102,7 @@
 		open(
 				url,
 				"confirm",
-				"toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300, height=200");
+				"toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500, height=300");
 	}
 </script>
 <!-- 주소api -->
@@ -113,76 +153,73 @@
 				}).open();
 	}
 </script>
-
 <body>
-
-	<form method="post" action="/Jumoon25/owner_login/owner_inputPro.do"
-		name="ownerinput" onSubmit="return checkIt()">
-		<table width="600" border="1" cellspacing="0" cellpadding="3"
-			align="center">
-			<tr>
-				<td colspan="2" height="39" align="center"><font size="+1"><b>사장님
-							회원가입</b></font></td>
-			</tr>
-			<tr>
-				<td width="200"><b>아이디 입력</b></td>
-				<td width="400">&nbsp;</td>
-			</tr>
-
-			<tr>
-				<td width="200">사용자 ID</td>
-				<td width="400"><input type="text" name="owner_id" size="10"
-					maxlength="12"> <input type="button" name="confirm"
-					value="ID중복확인" OnClick="openConfirmid(this.form)"></td>
-			</tr>
-			<tr>
-				<td width="200">비밀번호</td>
-				<td width="400"><input type="password" name="owner_pw"
-					size="15" maxlength="12"></td>
-			<tr>
-				<td width="200">비밀번호 확인</td>
-				<td width="400"><input type="password" name="owner_pw2"
-					size="15" maxlength="12"></td>
-			</tr>
-
-			<tr>
-				<td width="200"><b>개인정보 입력</b></td>
-				<td width="400">&nbsp;</td>
-			<tr>
-			<tr>
-				<td width="200">사용자 이름</td>
-				<td width="400"><input type="text" name="owner_name" size="15"
-					maxlength="10"></td>
-			</tr>
-			<tr>
-				<td width="200">성별</td>
-				<td width="400"><input type="radio" name="owner_sex" value="m">남
-					<input type="radio" name="owner_sex" value="f">여</td>
-			</tr>
-			<tr>
-				<td width="200">생년월일</td>
-				<td width="400"><input type="text" name="owner_birth" size="40"
-					maxlength="30" placeholder="생년월일 순으로  -없이 입력하세요(8자리)"></td>
-			</tr>
-			<tr>
-				<td width="200">전화번호</td>
-				<td width="400"><input type="text" name="owner_phone" size="60"
-					maxlength="50" placeholder="11자리를 -없이 입력하세요"></td>
-			</tr>
-			<tr>
-				<td width="200">주소</td>
-				<td width="400"><input type="text" name="owner_address"
-					size="60" maxlength="50"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit"
-					name="confirm" value="등   록"> <input type="reset"
-					name="reset" value="다시입력"> <input type="button"
-					value="가입안함"
-					onclick="javascript:window.location='owner_loginForm.do'">
-				</td>
-			</tr>
-		</table>
-	</form>
+	<div class="container w-50 py-3">
+		<h5>사장님 회원가입</h5>
+		<form method="post" action="/Jumoon25/owner_login/owner_inputPro.do"
+			name="ownerinput" onSubmit="return checkIt()">
+			<input type="hidden" name="confirmCheck">
+			<div class="form-inline mb-1">
+				<input type="text" name="owner_id" placeholder="아이디"
+					class="form-control form-control-sm" /><input type="button"
+					name="confirm" value="중복확인"
+					class="btn btn-secondary btn-sm ml-auto mr-0"
+					OnClick="openConfirmid(this.form)">
+			</div>
+			<div class="form-group mb-1">
+				<input class="form-control form-control-sm" name="owner_pw"
+					type="password" placeholder="비밀번호">
+			</div>
+			<div class="form-group">
+				<input class="form-control form-control-sm" name="owner_pw2"
+					type="password" placeholder="비밀번호 재입력">
+			</div>
+			<div class="form-inline mb-1">
+				<div class="form-group">
+					<input class="form-control form-control-sm" name="owner_name"
+						type="text" placeholder="성함">
+					<div class="custom-control custom-radio ml-4">
+						<input name="owner_sex" class="custom-control-input"
+							id="customRadio1" type="radio" value="m"> <label
+							class="custom-control-label" for="customRadio1">남</label>
+					</div>
+					<div class="custom-control custom-radio ml-2">
+						<input name="owner_sex" class="custom-control-input"
+							id="customRadio2" type="radio" value="f"> <label
+							class="custom-control-label" for="customRadio2">여</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-1">
+				<input class="form-control form-control-sm" name="owner_birth"
+					type="text" placeholder="생년월일(-없이 8자리)" maxlength="8">
+			</div>
+			<div class="form-group mb-1">
+				<input class="form-control form-control-sm" name="owner_phone"
+					type="text" placeholder="전화번호(-없이 11자리)" maxlength="11">
+			</div>
+			<div class="form-inline mb-1">
+				<input type="text" class="form-control form-control-sm" name="owner_address"
+					id="sample6_postcode" placeholder="우편번호" size="10" readonly="">
+				<input type="button" class="btn btn-secondary btn-sm ml-auto mr-0"
+					onclick="sample6_execDaumPostcode()" value="주소 찾기">
+			</div>
+			<div class="form-group mb-1">
+				<input type="text" class="form-control form-control-sm" readonly=""
+					id="sample6_address" name="owner_address1" placeholder="주소">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control form-control-sm"
+					id="sample6_address2" name="owner_address2" placeholder="상세 주소">
+			</div>
+			<div class="form-inline">
+				<input type="submit" class="btn btn-primary btn-sm ml-auto mr-1"
+					value="회원가입"> <input type="button"
+					class="btn btn-primary btn-sm ml-1 mr-auto"
+					onclick="javascript:window.location='owner_loginForm.do'"
+					value="돌아가기">
+			</div>
+		</form>
+	</div>
 </body>
 </html>

@@ -1,28 +1,48 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../module/top.jsp"%>
+<%@ include file="../module/bottom.jsp"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>·Î±×ÀÎ</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ì‚¬ì¥ë‹˜ ë¡œê·¸ì¸</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+
+<link href="/Jumoon25/design/bootswatch/bootstrap.css" rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_bootswatch.scss"
+	rel="stylesheet">
+<link href="/Jumoon25/design/bootswatch/_variables.scss"
+	rel="stylesheet">
 
 <script language="javascript">
-	function begin() {
-		document.myform.id.focus();
-	}
 	function checkIt() {
 		if (!document.myform.owner_id.value) {
-			alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏÁö ¾ÊÀ¸¼Ì½À´Ï´Ù.");
+			alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì§€ ì•Šìœ¼ì…¨ìŠµë‹ˆë‹¤.");
 			document.myform.owner_id.focus();
 			return false;
 		}
 		if (!document.myform.owner_pw.value) {
-			alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏÁö ¾ÊÀ¸¼Ì½À´Ï´Ù.");
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì§€ ì•Šìœ¼ì…¨ìŠµë‹ˆë‹¤.");
 			document.myform.owner_pw.focus();
 			return false;
 		}
 	}
 </script>
 </head>
-<BODY onload="begin()">
+<BODY>
 
 	<div id="wrap">
 		<div id="header">
@@ -32,25 +52,42 @@
 		</div>
 		<div id="container">
 			<div id="content">
-				<h2 class="blind">»çÀå´Ô ·Î±×ÀÎ</h2>
+				<h2 class="blind">ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½</h2>
 				<div class="join">
 					<form name="myform"	action="/Jumoon25/owner_login/owner_loginPro.do" method="post" onSubmit="return checkIt()">
 						<p class="field">
-							<label for="owner_id" class="col-form-label">¾ÆÀÌµğ</label>
-							<input type="text" id="owner_id" name="owner_id" value="${owner_dto.owner_id} placeholder="¾ÆÀÌµğ" class="form-control" />
+							<label for="owner_id" class="col-form-label">ï¿½ï¿½ï¿½Ìµï¿½</label>
+							<input type="text" id="owner_id" name="owner_id" value="${owner_dto.owner_id} placeholder="ï¿½ï¿½ï¿½Ìµï¿½" class="form-control" />
 						</p>
 						<p class="field">
-							<label for="owner_pw" class="col-form-label">ºñ¹Ğ¹øÈ£</label>
-							<input type="password" id="owner_pw" name="owner_pw" value="${owner_dto.owner_pw} placeholder="ºñ¹Ğ¹øÈ£" class="form-control" />
+							<label for="owner_pw" class="col-form-label">ï¿½ï¿½Ğ¹ï¿½È£</label>
+							<input type="password" id="owner_pw" name="owner_pw" value="${owner_dto.owner_pw} placeholder="ï¿½ï¿½Ğ¹ï¿½È£" class="form-control" />
 						</p>
 						<div class="btn-area">
-							<input type="submit" class="btn btn-primary" value="·Î±×ÀÎ" />
-							<input type="button" value="È¸¿ø°¡ÀÔ" class="btn btn-primary" onclick="javascript:window.location='owner_inputForm.do'" />
+							<input type="submit" class="btn btn-primary" value="ï¿½Î±ï¿½ï¿½ï¿½" />
+							<input type="button" value="È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" class="btn btn-primary" onclick="javascript:window.location='owner_inputForm.do'" />
 						</div>
 					</form>
+
+	<div class="container w-50 py-3">
+	<a href="#"></a><h3>ì‚¬ì¥ë‹˜ ë¡œê·¸ì¸</h3>
+			<form name="myform" action="/Jumoon25/owner_login/owner_loginPro.do"
+				method="post" onSubmit="return checkIt()">
+				<div class="form-group">
+					<label for="owner_id">ì•„ì´ë””</label> <input type="text" name="owner_id"
+						placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”." class="form-control" />
 				</div>
-			</div>
-		</div>
+				<div class="form-group">
+					<label for="owner_pw">ë¹„ë°€ë²ˆí˜¸</label> <input type="password"
+						name="owner_pw" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”." class="form-control" />
+				</div>
+				<div class="btn-area" align="center">
+					<input type="submit" class="btn btn-primary" value="ë¡œê·¸ì¸" /> <input
+						type="button" value="íšŒì›ê°€ì…" class="btn btn-primary"
+						onclick="javascript:window.location='owner_inputForm.do'" />
+				</div>
+			</form>
 	</div>
+
 </BODY>
 </HTML>
