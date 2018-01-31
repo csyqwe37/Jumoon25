@@ -25,6 +25,8 @@ public class ShopDataBean {
 	private int shop_order_count;
 	private double shop_star;
 	
+	private String org_image;
+	
 	public String getShop_name() {
 		return shop_name;
 	}
@@ -156,6 +158,12 @@ public class ShopDataBean {
 	}
 	public void setShop_star(double shop_star) {
 		this.shop_star = shop_star;
+	}
+	public String getOrg_image() {
+		return org_image;
+	}
+	public void setOrg_image(String org_image) {
+		this.org_image = org_image;
 	}
 	
 }

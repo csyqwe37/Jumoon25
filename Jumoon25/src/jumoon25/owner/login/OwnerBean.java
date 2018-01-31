@@ -33,7 +33,7 @@ public class OwnerBean {
 			int check = (Integer) sqlMap.queryForObject("owner.adminLoginCheck", admin_dto);
 			if (check == 1) {
 				session.setAttribute("ownerId", admin_dto.getAdmin_id());
-				view = "redirect:/admin_page/main.do";
+				view = "redirect:/admin_gate/main.do";
 			}
 		} else {
 			int check = (Integer) sqlMap.queryForObject("owner.ownerLoginCheck", owner_dto);

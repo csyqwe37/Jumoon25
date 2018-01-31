@@ -44,7 +44,7 @@
 		<input type="button" name="sales_graph" value="매출관리"
 			onclick="javascript:window.location='/Jumoon25/owner_management/owner_sales_graph.do'" />
 		<input type="button" name="notices" value="공지사항"
-			onclick="javascript:window.location='/Jumoon25/owner_management/owner_notices.do'" />
+			onclick="javascript:window.location='/Jumoon25/admin_notice/noticeList.do?currentPage=1'" />
 	</div>
 
 </BODY>
