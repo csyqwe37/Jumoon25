@@ -44,6 +44,31 @@
 </head>
 <BODY>
 
+	<div id="wrap">
+		<div id="header">
+			<h1 class="logo">
+				<a href="#">Jumoon25</a>
+			</h1>
+		</div>
+		<div id="container">
+			<div id="content">
+				<h2 class="blind">����� �α���</h2>
+				<div class="join">
+					<form name="myform"	action="/Jumoon25/owner_login/owner_loginPro.do" method="post" onSubmit="return checkIt()">
+						<p class="field">
+							<label for="owner_id" class="col-form-label">���̵�</label>
+							<input type="text" id="owner_id" name="owner_id" value="${owner_dto.owner_id} placeholder="���̵�" class="form-control" />
+						</p>
+						<p class="field">
+							<label for="owner_pw" class="col-form-label">��й�ȣ</label>
+							<input type="password" id="owner_pw" name="owner_pw" value="${owner_dto.owner_pw} placeholder="��й�ȣ" class="form-control" />
+						</p>
+						<div class="btn-area">
+							<input type="submit" class="btn btn-primary" value="�α���" />
+							<input type="button" value="ȸ������" class="btn btn-primary" onclick="javascript:window.location='owner_inputForm.do'" />
+						</div>
+					</form>
+
 	<div class="container w-50 py-3">
 	<a href="#"></a><h3>사장님 로그인</h3>
 			<form name="myform" action="/Jumoon25/owner_login/owner_loginPro.do"
