@@ -54,11 +54,14 @@
 				  
 	    </tr>
 	    
-	    <tr align="right">
-	    	<td colspan="5">
-	    		<input type="button" value="글쓰기" class="btn btn-primary disabled" onClick="javascript:location.href='noticeWrite.do?currentPage=${currentPage}';">
-	    	</td>
-	    </tr>
+	    <c:if test="${sessionScope.ownerId == 'admin'}">
+	    	<tr align="right">
+		    	<td colspan="5">
+		    		<input type="button" value="글쓰기" class="btn btn-primary disabled" onClick="javascript:location.href='noticeWrite.do?currentPage=${currentPage}';">
+		    	</td>
+	    	</tr>
+	    </c:if>
+	 
   </tbody> 
 </table> 
    </body>
