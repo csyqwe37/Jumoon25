@@ -26,6 +26,7 @@
 	rel="stylesheet">
 <link href="/Jumoon25/design/bootswatch/_variables.scss"
 	rel="stylesheet">
+
 </head>
 <BODY>
 	<div>
@@ -39,12 +40,33 @@
 			</p>
 		</div>
 	</div>
+	
+	<div class="d-flex w-100 justify-content-between">
+      	<h5 class="mb-1">공지사항</h5>
+      	<small><a href="/Jumoon25/admin_notice/noticeList.do?currentPage=1">더보기></a></small>
+    </div>
+	<ul class="list-group">
+	  <li class="list-group-item d-flex justify-content-between align-items-center">
+	    <a href="/Jumoon25/admin_notice/noticeView.do?notice_number=${max}&currentPage=1">${title}</a>
+	    <span class="badge badge-primary badge-pill">${dateResult}</span>
+	    
+	  </li>
+	  <li class="list-group-item d-flex justify-content-between align-items-center">
+	    <a href="/Jumoon25/admin_notice/noticeView.do?notice_number=${max-1}&currentPage=1">${title1}</a>
+	     <span class="badge badge-primary badge-pill">${date1Result}</span>
+	  </li>
+	  <li class="list-group-item d-flex justify-content-between align-items-center">
+	    <a href="/Jumoon25/admin_notice/noticeView.do?notice_number=${max-2}&currentPage=1">${title2}</a>
+	     <span class="badge badge-primary badge-pill">${date2Result}</span>
+	  </li>
+	</ul>
+	<br/><br/>
+	
+	<div>
 		</br> <input type="button" name="shop_management" value="업체관리"
 			onclick="javascript:window.location='/Jumoon25/owner_management/owner_shop_management.do'" />
 		<input type="button" name="sales_graph" value="매출관리"
 			onclick="javascript:window.location='/Jumoon25/owner_management/owner_sales_graph.do'" />
-		<input type="button" name="notices" value="공지사항"
-			onclick="javascript:window.location='/Jumoon25/admin_notice/noticeList.do?currentPage=1'" />
 	</div>
 
 </BODY>

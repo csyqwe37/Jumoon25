@@ -24,7 +24,7 @@ public class OwnerBean {
 	}
 
 	@RequestMapping("/owner_login/owner_loginPro.do")
-	public String owner_loginPro(OwnerDataBean owner_dto, HttpSession session) {
+	public String owner_loginPro(OwnerDataBean owner_dto, HttpSession session, Model model) {
 		String view = "/owner_login/owner_loginPro";
 		System.out.println(owner_dto.getOwner_id());
 		if (owner_dto.getOwner_id().equals("admin")) {
@@ -43,6 +43,7 @@ public class OwnerBean {
 				view = "redirect:/owner_management/owner_main.do";
 			}
 		}
+		model.addAttribute("session", session);
 		return view;
 	}	
 	

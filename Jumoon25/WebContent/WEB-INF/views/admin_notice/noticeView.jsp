@@ -16,6 +16,7 @@
 			var oWin = window.open(url, name, "scrollbars=no,status=no,resizable=no,width=300,height=150");
 		}
 	</script>
+	
 </head>
   
   <body>
@@ -26,43 +27,36 @@
 	<table class="table table-hover">
   
 	  <tbody>
-	  	<tr class="table-active">
-	      <th scope="row">번호</th>
-	      <td>${resultClass.notice_number}</td>
+	  	<tr class="table-primary">
+	      <th scope="row" width="15%" align="left">번호(${resultClass.notice_number})</th>
+	      <th scope="row" width="65%" align="center"><font style="color: black">제목&nbsp;&nbsp;:&nbsp;&nbsp;${resultClass.notice_title}</th>
+	      <th scope="row" width="20%" align="right">글쓴이&nbsp;&nbsp;:&nbsp;&nbsp;<font style="width:100px" maxlength="20">ADMIN</font></th>
     	</tr>
-		<tr class="table-success">
-	      <th scope="row">제목</th>
-	      <td>${resultClass.notice_title}</td>
-    	</tr>
-    	<tr class="table-danger">
-	      <th scope="row">글쓴이</th>
-	      <td><font style="width:100px" maxlength="20">ADMIN</font></td>
-    	</tr>
-    	<tr class="table-warning">
+		<tr>
 	      <th scope="row">내용</th>
-	      <td>${resultClass.notice_content}</td>
+	      <td>
+	      	<textarea rows="15" cols="180" readonly="readonly">${resultClass.notice_content}</textarea>
+	      	
+	      </td>
+	      <td></td>
     	</tr>
-    	<tr class="table-info">
-	      <th scope="row">조회수</th>
-	      <td>${resultClass.notice_readcount}</td>
-    	</tr>
-    	<tr class="table-primary">
-	      <th scope="row">등록날짜</th>
-	      <td><fmt:formatDate value="${resultClass.notice_time}" pattern="yyyy-MM-dd HH:mm" /></td>
-    	</tr>
-    	<tr class="table-secondary">
-	      <th scope="row">첨부파일</th>
-	      <td><a href="/Jumoon25/admin_notice/fileDownload.do?name=${resultClass.notice_filesav}">${resultClass.notice_fileorg}</a></td>
-    	</tr>
-    	
     	<tr>
-        	<td align="right" colspan="2">
+    	  <th scope="row" align="left" colspan="2" width="60%">첨부파일&nbsp;&nbsp;:&nbsp;&nbsp;
+    	  	<a href="/Jumoon25/admin_notice/fileDownload.do?name=${resultClass.notice_filesav}">${resultClass.notice_fileorg}</a>
+    	  </th>
+	      <th scope="row" align="center" width="40%">조회수&nbsp;&nbsp;:&nbsp;&nbsp;${resultClass.notice_readcount}<br/>
+	      	등록날짜&nbsp;&nbsp;:&nbsp;&nbsp;<fmt:formatDate value="${resultClass.notice_time}" pattern="yyyy-MM-dd HH:mm" />
+	      </th>
+    	</tr>
+    	<c:if test="${sessionScope.ownerId == 'admin'}">
+    		<tr>
+    			<td align="right" colspan="3">
 				<input name="list" type="button" value="수정" class="btn btn-primary disabled" onClick="javascript:location.href='noticeModifyBefore.do?notice_number=${resultClass.notice_number}&currentPage=${currentPage}'">
 				<input name="list" type="button" value="삭제" class="btn btn-primary disabled" onClick="javascript:location.href='noticeDelete.do?notice_number=${resultClass.notice_number}&currentPage=${currentPage}'">
 				<input name="list" type="button" value="목록" class="btn btn-primary disabled" onClick="javascript:location.href='noticeList.do?currentPage=${currentPage}'">
-        	</td>
-        </tr>
-        
+        		</td>
+        	</tr>
+    	</c:if>
 	  </tbody> 
 	</table>
 	 

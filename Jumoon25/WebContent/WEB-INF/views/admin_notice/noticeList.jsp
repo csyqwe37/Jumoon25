@@ -21,7 +21,7 @@
   	
 	<table class="table table-hover">
   <thead>
-    <tr>
+    <tr class="table-primary">
       <th scope="col">번호</th>
       <th scope="col">제목</th>
       <th scope="col">글쓴이</th>
@@ -32,7 +32,7 @@
   
   <tbody>
   	<c:forEach var="dto" items="${list}">
-	    <tr class="table-primary">
+	    <tr>
 	      <th scope="row">${dto.notice_number}</th>
 	      <td><a href="noticeView.do?notice_number=${dto.notice_number}&currentPage=${currentPage}">${dto.notice_title}</a></td>
 	      <td>ADMIN</td>
@@ -54,11 +54,14 @@
 				  
 	    </tr>
 	    
-	    <tr align="right">
-	    	<td colspan="5">
-	    		<input type="button" value="글쓰기" class="btn btn-primary disabled" onClick="javascript:location.href='noticeWrite.do?currentPage=${currentPage}';">
-	    	</td>
-	    </tr>
+	    <c:if test="${sessionScope.ownerId == 'admin'}">
+	    	<tr align="right">
+		    	<td colspan="5">
+		    		<input type="button" value="글쓰기" class="btn btn-primary disabled" onClick="javascript:location.href='noticeWrite.do?currentPage=${currentPage}';">
+		    	</td>
+	    	</tr>
+	    </c:if>
+	 
   </tbody> 
 </table> 
    </body>

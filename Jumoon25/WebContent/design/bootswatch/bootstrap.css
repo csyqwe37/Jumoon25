@@ -1695,6 +1695,7 @@ pre code {
 .table-primary > th,
 .table-primary > td {
   background-color: #c5e6f8;
+ 
 }
 
 .table-hover .table-primary:hover {

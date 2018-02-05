@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
@@ -70,7 +72,7 @@ public class NoticeBean {
 	@RequestMapping(value="noticeWrite2.do", method=RequestMethod.POST)
 	public String write2(NoticeDTO resultClass, MultipartHttpServletRequest multi) throws IOException {
 		
-		//등록 쿼리 수행.
+		//등록 쿼리 수행
 		sqlMap.insert("notice.insertNotice", resultClass);
 		
 		MultipartFile mf = multi.getFile("upload");		//업로드 파일 원본 정보
@@ -101,7 +103,7 @@ public class NoticeBean {
 			
 			//파일 정보 업데이트
 			sqlMap.update("notice.updateFile", paramClass);
-			
+		
 		}
 		return "/admin_notice/noticeWritePro";
 	}

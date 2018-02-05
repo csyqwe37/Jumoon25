@@ -58,9 +58,11 @@
 		#owner_sex#,#owner_birth#,#owner_phone#,#owner_address#,#owner_address1#,#owner_address2#,default
 		)
 	</insert>
+	
+	<select id="ownerCheckPermission" parameterClass="String" 
+ 		resultClass="int"> 
+ 		select owner_permission from owner where owner_id=#owner_id# 
+	</select> 
+	
 
-	<select id="ownerCheckPermission" parameterClass="String"
-		resultClass="int">
-		select owner_permission from owner where owner_id=#owner_id#
-	</select>
 </sqlMap>
