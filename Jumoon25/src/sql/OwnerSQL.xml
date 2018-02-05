@@ -29,21 +29,6 @@
 		<include refid="select-all"/>
 		where owner_permission = 0
 	</select>
-	
-	<select id="ownerLoginCheck" resultClass="int" parameterClass="owner_dto">
-		select count(*) from owner where owner_id=#owner_id# and owner_pw=#owner_pw#
-	</select>
-	
-	<select id="adminLoginCheck" resultClass="int" parameterClass="admin_dto">
-		select count(*) from administrator where admin_id=#admin_id# and admin_pw=#admin_pw#
-	</select>
-	
-	<select id="ownerIdCheck" resultClass="int" parameterClass="String">
-		select count(*) from owner where owner_id=#owner_id#
-
-		<include refid="select-all" />
-		where owner_id = #owner_id#
-	</select>
 
 	<!-- update 쿼리문 정의 -->
 	<update id="ownerPermissionUpdate" parameterClass="owner_dto">
@@ -51,11 +36,6 @@
 		where owner_id = #owner_id#
    	</update>
 
-	<!-- 승인이 안된 예비 owner들의 list를 불러올 수 있도록 정의 -->
-	<select id="notPermission" resultClass="owner_dto">
-		<include refid="select-all" />
-		where owner_permission = 0
-	</select>
 
 	<!-- shin -->
 	<select id="ownerLoginCheck" resultClass="int" parameterClass="owner_dto">
