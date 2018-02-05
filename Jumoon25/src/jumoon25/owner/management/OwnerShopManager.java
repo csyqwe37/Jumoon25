@@ -90,11 +90,6 @@ public class OwnerShopManager {
 		return "/owner_management/owner_addShopPro";
 	}
 
-	@RequestMapping("/owner_management/owner_menu_management.do")
-	public String owner_menu_management() {
-		return "/owner_management/owner_menu_management";
-	}
-
 	@RequestMapping(value = "/owner_management/owner_shop_modify.do", method = RequestMethod.GET)
 	public String owner_shop_modify(@RequestParam(value = "crNum") String crNum, ShopDataBean shop_dto,
 			HttpSession session, Model model) throws Exception {
@@ -111,7 +106,7 @@ public class OwnerShopManager {
 		String id = (String) session.getAttribute("ownerId");
 		shop_dto.setShop_owner_id(id);
 		String img = (String) shop_dto.getOrg_image();
-		if(img.equals("1")) {
+		if (img.equals("1")) {
 			MultipartFile mf = multi.getFile("img");
 			img = shop_dto.getShop_crNum();
 			String orgName = mf.getOriginalFilename();
@@ -119,11 +114,11 @@ public class OwnerShopManager {
 			img += ext;
 			String savePath = request.getRealPath("owner_shop_image");
 			File copy = new File(savePath + "//" + img);
-			mf.transferTo(copy);			
+			mf.transferTo(copy);
 		}
 		shop_dto.setShop_image(img);
-		
-		sqlMap.update("shop.shopModify",shop_dto);
+
+		sqlMap.update("shop.shopModify", shop_dto);
 		return "/owner_management/owner_shop_modifyPro";
 	}
 
@@ -150,6 +145,23 @@ public class OwnerShopManager {
 		shop_dto.setShop_owner_id((String) session.getAttribute("ownerId"));
 		sqlMap.delete("shop.shopDelete", shop_dto);
 		return "/owner_management/owner_shop_delete";
+	}
+
+	@RequestMapping(value = "/owner_management/owner_menu_management.do", method = RequestMethod.GET)
+	public ModelAndView owner_menu_management(@RequestParam(value = "crNum") String crNum, HttpSession session,
+			ModelAndView mav) {
+		String id = (String) session.getAttribute("ownerId");
+		String table_name = id + "_" + crNum;
+		int check = (int) sqlMap.queryForObject("menu.menuTableCheck", table_name.toUpperCase());
+		if (check == 0) {
+			sqlMap.insert("menu.menuCreate", table_name);
+		}
+
+		mav = new ModelAndView();
+		List list = sqlMap.queryForList("menu.getAll", table_name);
+		mav.addObject("list", list);
+
+		return mav;
 	}
 
 }
