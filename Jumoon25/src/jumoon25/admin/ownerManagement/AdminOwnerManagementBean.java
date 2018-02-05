@@ -1,6 +1,9 @@
 package jumoon25.admin.ownerManagement;
 
 import org.springframework.ui.Model;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Controller;
@@ -48,19 +51,32 @@ public class AdminOwnerManagementBean {
 		return "/admin_ownerManagement/permissionList";
 	}
 	
-	@RequestMapping("permissionView.do")
-	public String perrmissionView(OwnerDataBean dto, Model model, int currentPage) {
+	@RequestMapping("permissionProEnable.do")
+	public String perrmissionProEnable(OwnerDataBean dto, Model model, int currentPage) {
 		
-		System.out.println("현재 열람하고 있는 사장님의 ID는 " + dto.getOwner_id() + "이며 이름은 " + dto.getOwner_name() + "입니다.");
-		
+		System.out.println("현재 사장님 아이디" + dto.getOwner_id());
 		//해당 번호의 글을 가져온다.
 		OwnerDataBean resultClass = new OwnerDataBean();
 		resultClass = (OwnerDataBean)sqlMap.queryForObject("owner.selectOne", dto.getOwner_id());
+		System.out.println("현재 사장님 승인상태 : " + resultClass.getOwner_permission());
+		resultClass.setOwner_permission("1");
+		
+		String permission  = null;
+		if(resultClass.getOwner_permission().equals("0")) {
+			permission = "disable";
+		}else if(resultClass.getOwner_permission().equals("1")){
+			permission = "enable";
+		}
+		System.out.println("현재 " + resultClass.getOwner_name() + "사장님의  파트너 관계는 " + permission + " 상태 입니다.");
+		
+		//파일 정보 업데이트
+		sqlMap.update("owner.ownerPermissionUpdate", resultClass);
 		
 		model.addAttribute("resultClass", resultClass);
 		model.addAttribute("currentPage", currentPage);
 		
-		return "/admin_ownerManagement/permissionView";
+		return "/admin_ownerManagement/permissionPro";
 	}
+	
 }
 
