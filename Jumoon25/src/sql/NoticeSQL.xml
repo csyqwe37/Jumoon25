@@ -33,6 +33,12 @@
 		<select id="selectLastNo2" resultClass="int">
 			SELECT max(notice_number) as notice_number FROM NOTICE
 		</select>
+		<select id="selectDate" resultClass="String" parameterClass="int">
+			select notice_time from notice where notice_number = #notice_number#
+		</select>
+		<select id="selectTitle" resultClass="String" parameterClass="int">
+			select notice_title from notice where notice_number = #notice_number#
+		</select>
 		
 		<!-- insert 쿼리문 정의 -->
 		<insert id="insertNotice" parameterClass="notice">

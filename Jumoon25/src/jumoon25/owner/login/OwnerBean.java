@@ -33,8 +33,6 @@ public class OwnerBean {
 			admin_dto.setAdmin_pw(owner_dto.getOwner_pw());
 			int check = (Integer) sqlMap.queryForObject("owner.adminLoginCheck", admin_dto);
 			if (check == 1) {
-				System.out.println("ddddd");
-				System.out.println(admin_dto.getAdmin_id());
 				session.setAttribute("ownerId", admin_dto.getAdmin_id());
 				view = "redirect:/admin_gate/main.do";
 			}

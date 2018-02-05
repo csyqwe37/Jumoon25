@@ -29,23 +29,26 @@
 	  <tbody>
 	  	<tr class="table-primary">
 	      <th scope="row" width="15%" align="left">번호(${resultClass.notice_number})</th>
-	      <th scope="row" width="65%" align="center">제목&nbsp;&nbsp;:&nbsp;&nbsp;${resultClass.notice_title}</th>
+	      <th scope="row" width="65%" align="center"><font style="color: black">제목&nbsp;&nbsp;:&nbsp;&nbsp;${resultClass.notice_title}</th>
 	      <th scope="row" width="20%" align="right">글쓴이&nbsp;&nbsp;:&nbsp;&nbsp;<font style="width:100px" maxlength="20">ADMIN</font></th>
     	</tr>
-		<tr class="table-primary">
+		<tr>
 	      <th scope="row">내용</th>
-	      <td>${resultClass.notice_content}</td>
+	      <td>
+	      	<textarea rows="15" cols="180" readonly="readonly">${resultClass.notice_content}</textarea>
+	      	
+	      </td>
 	      <td></td>
     	</tr>
-    	<tr class="table-primary">
+    	<tr>
     	  <th scope="row" align="left" colspan="2" width="60%">첨부파일&nbsp;&nbsp;:&nbsp;&nbsp;
     	  	<a href="/Jumoon25/admin_notice/fileDownload.do?name=${resultClass.notice_filesav}">${resultClass.notice_fileorg}</a>
     	  </th>
-	      <th scope="row" align="center" width="40%">조회수&nbsp;&nbsp;:&nbsp;&nbsp;${resultClass.notice_readcount}
-	      	&nbsp;&nbsp;,&nbsp;&nbsp;등록날짜&nbsp;&nbsp;:&nbsp;&nbsp;<fmt:formatDate value="${resultClass.notice_time}" pattern="yyyy-MM-dd HH:mm" />
+	      <th scope="row" align="center" width="40%">조회수&nbsp;&nbsp;:&nbsp;&nbsp;${resultClass.notice_readcount}<br/>
+	      	등록날짜&nbsp;&nbsp;:&nbsp;&nbsp;<fmt:formatDate value="${resultClass.notice_time}" pattern="yyyy-MM-dd HH:mm" />
 	      </th>
     	</tr>
-    	<c:if test="">
+    	<c:if test="${sessionScope.ownerId == 'admin'}">
     		<tr>
     			<td align="right" colspan="3">
 				<input name="list" type="button" value="수정" class="btn btn-primary disabled" onClick="javascript:location.href='noticeModifyBefore.do?notice_number=${resultClass.notice_number}&currentPage=${currentPage}'">

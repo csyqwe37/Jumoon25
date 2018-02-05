@@ -17,4 +17,17 @@ public class AdminRevenueManagementBean {
 		
 		return "/admin_revenueManagement/revenueMain";
 	}
+	
+	@RequestMapping("api.do")
+	public String api() {
+		
+		return "/admin_revenueManagement/api";
+	}
+	
+	@RequestMapping("kakao.do")
+	public String kakao() {
+		
+		return "/admin_revenueManagement/kakao";
+	}
+	
 }

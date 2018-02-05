@@ -16,13 +16,44 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import jumoon25.admin.notice.NoticeDTO;
+
 @Controller
 public class OwnerShopManager {
 	@Autowired
 	private SqlMapClientTemplate sqlMap = null;
 
 	@RequestMapping("/owner_management/owner_main.do")
-	public String owner_main() {
+	public String owner_main(Model model) {
+		
+		//등록된 글번호중 가장 큰수(가장 최근) 가져오기
+		int max = (int)sqlMap.queryForObject("notice.selectLastNo2");
+		int max1 = max - 1;
+		int max2 = max - 2;
+		
+		//가장 최근 글의 쓰여진 글 제목을 불러오기
+		String title = (String)sqlMap.queryForObject("notice.selectTitle", max);
+		String title1 = (String)sqlMap.queryForObject("notice.selectTitle", max1);
+		String title2 = (String)sqlMap.queryForObject("notice.selectTitle", max2);
+		
+		//가장 최근 글의 쓰여진 날짜를 불러오기
+ 		String date = (String)sqlMap.queryForObject("notice.selectDate", max);
+ 		String date1 = (String)sqlMap.queryForObject("notice.selectDate", max1);
+ 		String date2 = (String)sqlMap.queryForObject("notice.selectDate", max2);
+ 		
+ 		//날짜를 연-월-일만 추출
+ 		String dateResult = date.substring(0, 10);
+ 		String date1Result = date1.substring(0, 10);
+ 		String date2Result = date2.substring(0, 10);
+ 		
+		model.addAttribute("max", max);
+		model.addAttribute("title", title);
+		model.addAttribute("title1", title1);
+		model.addAttribute("title2", title2);
+		model.addAttribute("dateResult", dateResult);
+		model.addAttribute("date1Result", date1Result);
+		model.addAttribute("date2Result", date2Result);
+		
 		return "/owner_management/owner_main";
 	}
 
