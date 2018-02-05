@@ -31,6 +31,24 @@
 </script>
 <body>
 
+	<ul class="nav nav-pills">
+		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+			role="button" aria-expanded="false" aria-haspopup="true" href="#"
+			data-toggle="dropdown">Dropdown</a>
+			<div class="dropdown-menu"
+				style="left: 0px; top: 0px; position: absolute; transform: translate3d(0px, 40px, 0px);"
+				x-placement="bottom-start">
+				<a class="dropdown-item" href="#">Action</a> <a
+					class="dropdown-item" href="#">Another action</a> <a
+					class="dropdown-item" href="#">Something else here</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Separated link</a>
+			</div></li>
+	</ul>
+
+	<c:if test="${list.size()==0}">
+		<h5>등록된 메뉴가 없습니다.</h5>
+	</c:if>
 
 </body>
 </html>
