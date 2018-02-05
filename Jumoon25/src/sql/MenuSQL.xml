@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="menu">
+	<typeAlias alias="menu_dto" type="jumoon25.owner.management.MenuDataBean" />
+
+	<select id="menuTableCheck" parameterClass="String" resultClass="int">
+		select count(*) from tab where TNAME=#table_name#
+	</select>
+
+	<select id="getAll" parameterClass="String" resultClass="menu_dto">
+		select *
+		from $table_name$
+	</select>
+	
+	<select id="optionGetAll" parameterClass="String" resultClass="String">
+		select *
+		from $table_name$_option
+	</select>
+
+	<insert id="menuCreate" parameterClass="String">
+		create table
+		$table_name$(menu_name varchar2(100), menu_price varchar2(50),
+		menu_code varchar2(13) primary key, menu_option
+		varchar2(50), menu_level number default 0,menu_pause number default 0)
+	</insert>
+
+</sqlMap>

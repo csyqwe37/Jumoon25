@@ -71,6 +71,8 @@
 		<div class="btn-area" align="right">
 			<input class="btn btn-primary" type="button" name="addShop" value="업체등록"
 				onclick="javascript:window.location='/Jumoon25/owner_management/owner_addShopForm.do'" />
+				<input class="btn btn-primary" type="button" name="back" value="이전으로"
+				onclick="javascript:window.location='/Jumoon25/owner_management/owner_main.do'" />
 		</div>
 	</div>
 </BODY>
