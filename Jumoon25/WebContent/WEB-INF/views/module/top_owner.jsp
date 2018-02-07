@@ -12,7 +12,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="/Jumoon25/main/main.do">주문25</a>
+		<a class="navbar-brand" href="/Jumoon25//owner_login/owner_loginForm.do">주문25</a>
 		<button class="navbar-toggler" aria-expanded="false"
 			aria-controls="navbarColor02" aria-label="Toggle navigation"
 			type="button" data-target="#navbarColor02" data-toggle="collapse">

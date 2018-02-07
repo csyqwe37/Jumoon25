@@ -19,8 +19,18 @@ public class OwnerBean {
 	private AdminDataBean admin_dto = null;
 
 	@RequestMapping("/owner_login/owner_loginForm.do")
-	public String owner_loginForm() {
-		return "/owner_login/owner_loginForm";
+	public String owner_loginForm(HttpSession session) {
+		String view;
+		String id = (String)session.getAttribute("ownerId");
+		if(id==null) {
+			view = "/owner_login/owner_loginForm";
+		}
+		else if(id.equals("admin")) {
+			view = "redirect:/admin_gate/main.do";
+		}else {
+			view = "redirect:/owner_management/owner_main.do";
+		}
+		return view;
 	}
 
 	@RequestMapping("/owner_login/owner_loginPro.do")
