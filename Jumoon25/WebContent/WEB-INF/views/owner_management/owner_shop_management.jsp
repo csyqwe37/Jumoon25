@@ -115,7 +115,7 @@ html, body {
 						</c:if>
 					</c:forEach>
 
-					<c:if test="${list.size()==0}">
+					<c:if test="${list.size()<=0}">
 						<tr align="center">
 							<td colspan="6"><h5>등록된 업체가 없습니다.</h5></td>
 						</tr>
