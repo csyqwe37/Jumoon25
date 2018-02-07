@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../module/top_owner.jsp"%>
-<%@ include file="../module/bottom.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,29 +24,52 @@
 	rel="stylesheet">
 <link href="/Jumoon25/design/bootswatch/_variables.scss"
 	rel="stylesheet">
-<script language="JavaScript">
-	
-</script>
+<style type="text/css">
+html, body {
+	height: 100%;
+}
+
+.wrap {
+	min-height: 100%;
+	position: relative;
+	margin-bottom: -60px;
+	padding-bottom: 60px;
+}
+
+.footer {
+	margin-top: 10px;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	color: white;
+	background-color: #333333;
+	position: relative;
+}
+</style>
+</head>
+
 <body>
+	<div class="wrap">
+		<%@ include file="../module/top_owner.jsp"%>
+		<ul class="nav nav-pills">
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" role="button" aria-expanded="false"
+				aria-haspopup="true" href="#" data-toggle="dropdown">Dropdown</a>
+				<div class="dropdown-menu"
+					style="left: 0px; top: 0px; position: absolute; transform: translate3d(0px, 40px, 0px);"
+					x-placement="bottom-start">
+					<a class="dropdown-item" href="#">Action</a> <a
+						class="dropdown-item" href="#">Another action</a> <a
+						class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</div></li>
+		</ul>
 
-	<ul class="nav nav-pills">
-		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-			role="button" aria-expanded="false" aria-haspopup="true" href="#"
-			data-toggle="dropdown">Dropdown</a>
-			<div class="dropdown-menu"
-				style="left: 0px; top: 0px; position: absolute; transform: translate3d(0px, 40px, 0px);"
-				x-placement="bottom-start">
-				<a class="dropdown-item" href="#">Action</a> <a
-					class="dropdown-item" href="#">Another action</a> <a
-					class="dropdown-item" href="#">Something else here</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">Separated link</a>
-			</div></li>
-	</ul>
-
-	<c:if test="${list.size()==0}">
-		<h5>등록된 메뉴가 없습니다.</h5>
-	</c:if>
-
+		<c:if test="${list.size()==0}">
+			<h5>등록된 메뉴가 없습니다.</h5>
+		</c:if>
+	</div>
+	<%@ include file="../module/bottom.jsp"%>
 </body>
 </html>
