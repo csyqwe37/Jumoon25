@@ -29,7 +29,7 @@
 		<include refid="select-all"/>
 		where owner_permission = 0
 	</select>
-	
+
 	<!-- update 쿼리문 정의 -->
 	<update id="ownerPermissionUpdate" parameterClass="owner_dto">
     	UPDATE owner SET owner_permission = #owner_permission#
@@ -58,5 +58,11 @@
 		#owner_sex#,#owner_birth#,#owner_phone#,#owner_address#,#owner_address1#,#owner_address2#,default
 		)
 	</insert>
+	
+	<select id="ownerCheckPermission" parameterClass="String" 
+ 		resultClass="int"> 
+ 		select owner_permission from owner where owner_id=#owner_id# 
+	</select> 
+	
 
 </sqlMap>

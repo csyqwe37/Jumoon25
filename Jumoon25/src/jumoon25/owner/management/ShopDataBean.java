@@ -20,6 +20,7 @@ public class ShopDataBean {
 	private String shop_owner_id;
 	private String shop_code;
 	
+	private int shop_pause;
 	private int shop_review_count;
 	private int shop_bookmark;
 	private int shop_order_count;
@@ -134,6 +135,12 @@ public class ShopDataBean {
 	}
 	public void setShop_code(String shop_code) {
 		this.shop_code = shop_code;
+	}
+	public int getShop_pause() {
+		return shop_pause;
+	}
+	public void setShop_pause(int shop_pause) {
+		this.shop_pause = shop_pause;
 	}
 	public int getShop_review_count() {
 		return shop_review_count;
