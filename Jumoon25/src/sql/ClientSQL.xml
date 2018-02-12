@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap namespace="client">
+
+	<typeAlias alias="client" type="jumoon25.client.bean.ClientDTO" />
+		
+		<!-- 공통으로 사용할 select 절 정의 -->
+		<sql id="select-all">
+			select * from client
+		</sql>
+		
+		<!-- 공통으로 사용할 where-id 절 정의 -->
+		<sql id="where-id">
+			WHERE client_id = #client_id#
+		</sql>
+		
+		<!-- 카카오에서 불러온 회원정보와 추가로 입력받은 정보를 합쳐 고객db에 저장 -->
+		<insert id="insertClient" parameterClass="client">
+			insert into client(client_id,client_name,client_sex,client_phone,client_image,client_address,client_regdate)
+			values(#client_id#,#client_name#,#client_sex#,#client_phone#,#client_image#,#client_address#,sysdate)
+		</insert>
+		
+		<!-- DB에 저장된 아이디로 또 로그인 되면 추가 입력폼을 거치지 않고 홈으로 돌아가게 하기 위해서 db에 저장된 id 리스트가 필요 -->
+		<select id="searchClientId" resultClass="int" parameterClass="String">
+			select count(*) from client
+			<include refid="where-id"/>
+		</select>
+		
+</sqlMap>
+

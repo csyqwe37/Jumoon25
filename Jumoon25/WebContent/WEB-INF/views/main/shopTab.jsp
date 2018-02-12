@@ -18,7 +18,7 @@
 </script>
 
 </head>
-<%@ include file = "../module/top.jsp" %>
+<%@ include file = "../module/top_owner.jsp" %>
 <%@ include file = "../module/menu.jsp" %>
 
 <body>

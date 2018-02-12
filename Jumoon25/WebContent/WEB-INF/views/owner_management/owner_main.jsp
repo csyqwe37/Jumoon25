@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../module/top.jsp"%>
-<%@ include file="../module/bottom.jsp"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +26,33 @@
 <link href="/Jumoon25/design/bootswatch/_variables.scss"
 	rel="stylesheet">
 
+<style type="text/css">
+html, body {
+   height: 100%;
+}
+
+.wrap {
+   min-height: 100%;
+   position: relative;
+   margin-bottom:-60px;
+   padding-bottom:60px;
+}
+
+.footer {
+   margin-top:10px;
+   bottom: 0;
+   width: 100%;
+   height: 50px;
+   color: white;
+   background-color: #333333;
+   position: relative;
+}
+</style>
+
 </head>
 <BODY>
+	<div class="wrap">
+	<%@ include file="../module/top_owner.jsp"%>
 	<div>
 		<div class="jumbotron text-center">
 			<h1 class="display-3">사장님, 환영합니다!</h1>
@@ -68,6 +92,7 @@
 		<input type="button" name="sales_graph" value="매출관리"
 			onclick="javascript:window.location='/Jumoon25/owner_management/owner_sales_graph.do'" />
 	</div>
-
+	</div>
+	<%@ include file="../module/bottom.jsp"%>
 </BODY>
 </HTML>

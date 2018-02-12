@@ -1,20 +1,42 @@
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
 	<link href="/Jumoon25/design/bootswatch/bootstrap.css" rel="stylesheet">
 	<link href="/Jumoon25/design/bootswatch/bootstrap.min.css" rel="stylesheet">
 	<link href="/Jumoon25/design/bootswatch/_bootswatch.scss" rel="stylesheet">
 	<link href="/Jumoon25/design/bootswatch/_variables.scss" rel="stylesheet">
 	<title>비승인 사업주 리스트</title>
+	<style type="text/css">
+html, body {
+   height: 100%;
+}
+
+.wrap {
+   min-height: 100%;
+   position: relative;
+   margin-bottom:-60px;
+   padding-bottom:60px;
+}
+
+.footer {
+   margin-top:10px;
+   bottom: 0;
+   width: 100%;
+   height: 50px;
+   color: white;
+   background-color: #333333;
+   position: relative;
+}
+</style>
 </head>
   
   <body>
+  <div class="wrap">
+<%@ include file="../module/top_owner.jsp"%>
   	<div class="jumbotron">
   		<h1 class="display-3" align="center">비승인 사업주 리스트</h1>
   	</div>
@@ -59,6 +81,8 @@
 	    </tr>
   </tbody> 
 </table> 
+</div>
+<%@ include file="../module/bottom.jsp"%>
    </body>
 </html>
 

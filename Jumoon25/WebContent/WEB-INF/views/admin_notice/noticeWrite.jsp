@@ -1,10 +1,10 @@
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html lang="en">
 <head>
 	<link href="/Jumoon25/design/bootswatch/bootstrap.css" rel="stylesheet">
 	<link href="/Jumoon25/design/bootswatch/bootstrap.min.css" rel="stylesheet">
@@ -17,12 +17,12 @@
 		
 			var frm = document.forms(0);
 			
-			if(frm.subject.value == "") {
+			if(frm.notice_title.value == "") {
 				alert("제목을 입력해주세요.");
 				return false;
 			} 
 			
-			else if(frm.content.value == "") {
+			else if(frm.notice_title.value == "") {
 				alert("내용을 입력해주세요.");
 				return false;			
 			} 
@@ -30,9 +30,33 @@
 			return true;
 		}
 	</SCRIPT>
+	<style type="text/css">
+html, body {
+   height: 100%;
+}
+
+.wrap {
+   min-height: 100%;
+   position: relative;
+   margin-bottom:-60px;
+   padding-bottom:60px;
+}
+
+.footer {
+   margin-top:10px;
+   bottom: 0;
+   width: 100%;
+   height: 50px;
+   color: white;
+   background-color: #333333;
+   position: relative;
+}
+</style>
 </head>
   
   <body>
+  <div class="wrap">
+<%@ include file="../module/top_owner.jsp"%>
   	<div class="jumbotron">
   		<h1 class="display-3" align="center">공지사항 게시판</h1>
   	</div>
@@ -52,7 +76,6 @@
   				<p class="text-muted"><font color="#FF0000">*</font>는 필수 입력사항입니다.</p>
   			</div>
   	
-  		</tr>
     		<hr></hr>
 		    <div class="form-group">
 		      <label for="exampleInputTitle"><font color="#FF0000">*</font>제목</label>
@@ -78,6 +101,8 @@
     
     		<button class="btn btn-primary" type="submit">작성완료</button>
 		</form>
+		</div>
+<%@ include file="../module/bottom.jsp"%>
   </body>
 </html>
 
