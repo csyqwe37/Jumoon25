@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand" href="/Jumoon25//owner_login/owner_loginForm.do">주문25</a>
 		<button class="navbar-toggler" aria-expanded="false"
 			aria-controls="navbarColor02" aria-label="Toggle navigation"
